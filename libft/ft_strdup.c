@@ -6,26 +6,29 @@
 /*   By: uisrael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 10:55:28 by uisrael           #+#    #+#             */
-/*   Updated: 2019/06/10 14:08:54 by uisrael          ###   ########.fr       */
+/*   Updated: 2019/06/14 14:30:11 by uisrael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *src)
 {
-	char	*str;
-	size_t	i;
+	char	*new;
+	int		i;
+	int		size;
 
-	i = 0;
-	str = (char *)malloc(sizeof(*str) * (i + 1));
-	if (!str)
+	size = 0;
+	while (src[size])
+		++size;
+	if (!(new = malloc(sizeof(char) * (size + 1))))
 		return (NULL);
-	while (s1[i])
+	i = 0;
+	while (src[i])
 	{
-		str[i] = s1[i];
+		new[i] = src[i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	new[i] = '\0';
+	return (new);
 }
