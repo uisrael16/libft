@@ -6,7 +6,7 @@
 /*   By: uisrael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/28 11:32:03 by uisrael           #+#    #+#             */
-/*   Updated: 2019/06/11 16:35:40 by uisrael          ###   ########.fr       */
+/*   Updated: 2019/06/20 17:03:38 by uisrael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,4 @@ void				ft_putnbr_fd(int n, int fd);
 char				*ft_strtrim(char const *s);
 char				*ft_itoa(int nb);
 char				**ft_strsplit(char const *s, char c);
-char				*ft_strndup(const char *src, size_t n);
 #endif

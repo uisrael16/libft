@@ -6,7 +6,7 @@
 /*   By: uisrael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/04 16:06:38 by uisrael           #+#    #+#             */
-/*   Updated: 2019/06/09 10:37:41 by uisrael          ###   ########.fr       */
+/*   Updated: 2019/06/20 17:22:22 by uisrael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	if (s1 == NULL)
+	if (!s1 || !s2)
 	{
 		return (NULL);
 	}

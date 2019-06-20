@@ -6,13 +6,13 @@
 /*   By: uisrael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/10 09:45:17 by uisrael           #+#    #+#             */
-/*   Updated: 2019/06/12 16:21:14 by uisrael          ###   ########.fr       */
+/*   Updated: 2019/06/20 16:58:26 by uisrael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int static		len(long nb)
+static int		len(long nb)
 {
 	int len;
 
@@ -30,7 +30,7 @@ int static		len(long nb)
 	return (len);
 }
 
-char	*ft_itoa(int nb)
+char			*ft_itoa(int nb)
 {
 	char	*str;
 	long	n;
@@ -55,4 +55,3 @@ char	*ft_itoa(int nb)
 	}
 	return (str);
 }
-

@@ -6,12 +6,11 @@
 /*   By: uisrael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 08:58:40 by uisrael           #+#    #+#             */
-/*   Updated: 2019/06/13 08:10:11 by uisrael          ###   ########.fr       */
+/*   Updated: 2019/06/17 14:50:10 by uisrael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	ft_atoi(const char *str)
 {
@@ -37,12 +36,4 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return ((int)(res * sign));
-}
-int		main()
-{
-	printf("%d\n", atoi("77four"));
-	printf("%d\n", atoi("-275"));
-	printf("%d\n", atoi("four77"));
-	printf("%d\n", atoi("four5six"));
-	return (0);
 }
