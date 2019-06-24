@@ -6,7 +6,7 @@
 #    By: uisrael <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/28 11:25:48 by uisrael           #+#    #+#              #
-#    Updated: 2019/06/20 17:13:37 by uisrael          ###   ########.fr        #
+#    Updated: 2019/06/22 00:12:06 by uisrael          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ SRC = ft_atoi.c \
 	  ft_strtrim.c \
 	  ft_strjoin.c \
 	  ft_itoa.c \
-	  ft_strsplit.c \
+	  ft_strsplit.c 
 
 OBJ = $(SRC:.c=.o)
 

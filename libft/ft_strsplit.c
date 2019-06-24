@@ -5,70 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: uisrael <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/05 07:24:18 by uisrael           #+#    #+#             */
-/*   Updated: 2019/06/17 12:25:52 by uisrael          ###   ########.fr       */
+/*   Created: 2019/06/21 23:52:39 by uisrael           #+#    #+#             */
+/*   Updated: 2019/06/22 00:32:26 by uisrael          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_num_words(char const *s, char d)
+static int		ft_search_word(const char *str, int i, char **new_s, char c)
 {
-	size_t	num_words;
-	size_t	i;
+	int		w_len;
+	int		c_detect;
 
-	i = 0;
-	num_words = 0;
-	if ((s[i] != d) && (s[i + 1] != d) && (s[i + 1] != '\0'))
-		num_words++;
-	while (s[i])
+	c_detect = 0;
+	w_len = 0;
+	while (*str == c)
 	{
-		if ((s[i] == d) && (s[i + 1] != d) && (s[i + 1] != '\0'))
-			num_words++;
+		str++;
+		c_detect++;
+	}
+	while (str[w_len] && str[w_len] != c)
+		w_len++;
+	if (w_len > 0)
+	{
+		new_s[i] = ft_strnew(w_len);
+		ft_strncpy(new_s[i], str, w_len);
+	}
+	return (c_detect + w_len);
+}
+
+static int		ft_words_nbr(const char *str, int i, char c)
+{
+	while (*str == c)
+		str++;
+	while (*str)
+	{
+		while (*str && *str != c)
+			str++;
+		while (*str == c)
+			str++;
 		i++;
 	}
-	return (num_words);
+	return (i);
 }
 
-static int	ft_splitstr(char **arr, const char *s, char d, size_t len)
+char			**ft_strsplit(char const *s, char c)
 {
-	size_t	count;
-	size_t	wordlen;
-	size_t	i;
-
-	count = 0;
-	i = 0;
-	while (count < len)
-	{
-		wordlen = 0;
-		while (s[i] == d)
-			i++;
-		while (s[i] != d)
-		{
-			wordlen++;
-			i++;
-		}
-		if ((arr[count] = ft_strsub(&s[i - wordlen], 0, wordlen)) == NULL)
-			return (0);
-		count++;
-	}
-	arr[count] = 0;
-	return (1);
-}
-
-char		**ft_strsplit(char const *s, char c)
-{
-	char	**arr;
-	int		len;
+	int		w_len;
+	char	**new_s;
+	int		i;
+	int		wordcount;
 
 	if (!s)
 		return (NULL);
-	len = ft_num_words(s, c);
-	if ((arr = ((char **)malloc(sizeof(char *) * len + 1))) == NULL)
+	wordcount = ft_words_nbr(s, 0, c);
+	new_s = (char **)ft_memalloc((wordcount + 1) * sizeof(char *));
+	if (!new_s)
 		return (NULL);
-	if (ft_splitstr(arr, s, c, len))
-		return (arr);
-	else
-		free((void **)arr);
-	return (arr);
+	i = 0;
+	w_len = 0;
+	while (*s)
+	{
+		w_len = ft_search_word(s, i++, new_s, c);
+		s += w_len;
+	}
+	new_s[wordcount] = 0;
+	return (new_s);
 }
